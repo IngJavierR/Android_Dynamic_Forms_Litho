@@ -1,6 +1,6 @@
 package com.example.axity.lithoexample.componentmanager;
 
-import com.example.axity.lithoexample.components.CaptureText;
+import com.example.axity.lithoexample.components.EditTextComponent;
 import com.facebook.litho.Column;
 import com.facebook.litho.ComponentContext;
 
@@ -21,7 +21,7 @@ public class CaptureTextImpl implements  IComponentChain{
     public void dispense(ComponentContext c, Column.Builder builder, String data) {
         if(data.equals("1")){
             builder.child(
-                CaptureText.create(c)
+                EditTextComponent.create(c)
                 .id("Var0")
                 .build());
         }else{

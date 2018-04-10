@@ -1,7 +1,6 @@
 package com.example.axity.lithoexample.componentmanager;
 
-import com.example.axity.lithoexample.components.CaptureText;
-import com.example.axity.lithoexample.mount.CustomButton;
+import com.example.axity.lithoexample.components.ButtonComponent;
 import com.facebook.litho.Column;
 import com.facebook.litho.ComponentContext;
 import com.facebook.yoga.YogaEdge;
@@ -23,8 +22,8 @@ public class ButtonImpl implements  IComponentChain{
     public void dispense(ComponentContext c, Column.Builder builder, String data) {
         if(data.equals("0")){
             builder.child(
-                CustomButton.create(c)
-                .text("Click Me!")
+                ButtonComponent.create(c)
+                .id("Var3")
                 .widthDip(100)
                 .heightDip(48)
                 .marginDip(YogaEdge.RIGHT, 16)

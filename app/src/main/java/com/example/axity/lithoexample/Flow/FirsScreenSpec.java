@@ -5,7 +5,6 @@ import com.example.axity.lithoexample.componentmanager.CaptureTextImpl;
 import com.example.axity.lithoexample.componentmanager.IComponentChain;
 import com.example.axity.lithoexample.componentmanager.ShowTextImpl;
 import com.example.axity.lithoexample.componentmanager.SpinnerImpl;
-import com.example.axity.lithoexample.components.CaptureText;
 import com.facebook.litho.Column;
 import com.facebook.litho.Component;
 import com.facebook.litho.ComponentContext;

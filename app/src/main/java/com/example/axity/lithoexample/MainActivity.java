@@ -22,14 +22,6 @@ public class MainActivity extends AppCompatActivity {
                 .alignSelf(YogaAlign.CENTER)
                 .build();
 
-        /*final Component component =
-                RecyclerCollectionComponent.create(context)
-                .disablePTR(true)
-                .section(ListSection.create(new SectionContext(context)).build())
-                .build();*/
-
-        //setContentView(LithoView.create(context, component));
-
         setContentView(LithoView.create(context, component));
     }
 }
