@@ -1,18 +1,22 @@
 package com.example.axity.lithoexample.Flow;
 
 import com.example.axity.lithoexample.componentmanager.ButtonImpl;
-import com.example.axity.lithoexample.componentmanager.CaptureTextImpl;
+import com.example.axity.lithoexample.componentmanager.EditTextImpl;
 import com.example.axity.lithoexample.componentmanager.IComponentChain;
-import com.example.axity.lithoexample.componentmanager.ShowTextImpl;
 import com.example.axity.lithoexample.componentmanager.SpinnerImpl;
+import com.example.axity.lithoexample.utils.JsonManager;
 import com.facebook.litho.Column;
 import com.facebook.litho.Component;
 import com.facebook.litho.ComponentContext;
 import com.facebook.litho.Row;
 import com.facebook.litho.annotations.LayoutSpec;
 import com.facebook.litho.annotations.OnCreateLayout;
+import com.facebook.litho.annotations.Prop;
 import com.facebook.yoga.YogaJustify;
 import com.facebook.yoga.YogaWrap;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 import static com.facebook.yoga.YogaAlign.CENTER;
 
@@ -23,26 +27,34 @@ import static com.facebook.yoga.YogaAlign.CENTER;
 public class FirsScreenSpec {
 
     @OnCreateLayout
-    static Component onCreateLayout(ComponentContext c) {
+    static Component onCreateLayout(
+            ComponentContext c,
+            @Prop JSONArray jsonArray) {
 
-        IComponentChain c1 = new CaptureTextImpl();
-        IComponentChain c2 = new ShowTextImpl();
-        IComponentChain c3 = new ButtonImpl();
-        IComponentChain c4 = new SpinnerImpl();
+        IComponentChain c1 = new EditTextImpl();
+        IComponentChain c2 = new ButtonImpl();
+        IComponentChain c3 = new SpinnerImpl();
         c1.setNextChain(c2);
         c2.setNextChain(c3);
-        c3.setNextChain(c4);
 
         Column.Builder columnParentBuild = Column.create(c);
-
         Row.Builder rowParentBuild;
         Column.Builder columnChildBuild;
 
-        for(int i=0; i<2; i++){
+        for(int i=0; i<jsonArray.length(); i++){
             rowParentBuild = Row.create(c);
-            for(int y=0; y<4; y++){
+
+            JSONArray jsonArrayChild = JsonManager
+                    .getJsonArrayInsideArrayByIndex(jsonArray, i);
+
+            for(int y=0; y<jsonArrayChild.length(); y++){
                 columnChildBuild = Column.create(c);
-                c1.dispense(c, columnChildBuild, String.valueOf(y));
+
+                JSONObject jsonObjectChild = JsonManager
+                        .getJsonObjectInsideArrayByIndex(jsonArrayChild, y);
+
+                c1.dispense(c, columnChildBuild, jsonObjectChild.toString());
+
                 rowParentBuild.child(columnChildBuild);
             }
             columnParentBuild.child(rowParentBuild);

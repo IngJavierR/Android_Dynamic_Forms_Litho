@@ -3,6 +3,8 @@ package com.example.axity.lithoexample.componentmanager;
 import com.example.axity.lithoexample.components.SpinnerComponent;
 import com.example.axity.lithoexample.mount.CustomButton;
 import com.example.axity.lithoexample.mount.CustomSpinner;
+import com.example.axity.lithoexample.utils.Constants;
+import com.example.axity.lithoexample.utils.JsonManager;
 import com.facebook.litho.Column;
 import com.facebook.litho.ComponentContext;
 import com.facebook.yoga.YogaEdge;
@@ -25,16 +27,16 @@ public class SpinnerImpl implements  IComponentChain{
 
     @Override
     public void dispense(ComponentContext c, Column.Builder builder, String data) {
-        if(data.equals("3")){
 
-            List<String> dataList = new ArrayList<>();
-            dataList.add("Uno");
-            dataList.add("Dos");
-            dataList.add("Tres");
+        JsonManager manager = new JsonManager(data).parse();
+
+        if(manager.getChild(Constants.ELEMENTS_TYPE).equals(Constants.CHAIN_SPINNER)){
+
+            List<String> dataList = manager.getChildArray(Constants.ELEMENTS_OPTIONS);
 
             builder.child(
                 SpinnerComponent.create(c)
-                .id("Val4")
+                .id(manager.getChild(Constants.ELEMENTS_ID))
                 .dataList(dataList)
                 .widthDip(120)
                 .heightDip(48)

@@ -1,15 +1,16 @@
 package com.example.axity.lithoexample.componentmanager;
 
 import com.example.axity.lithoexample.components.EditTextComponent;
+import com.example.axity.lithoexample.utils.Constants;
+import com.example.axity.lithoexample.utils.JsonManager;
 import com.facebook.litho.Column;
 import com.facebook.litho.ComponentContext;
-import com.facebook.litho.widget.EditText;
 
 /**
  * Created by javierrodriguez on 4/9/18.
  */
 
-public class ShowTextImpl implements  IComponentChain{
+public class EditTextImpl implements  IComponentChain{
 
     private IComponentChain chain;
 
@@ -20,10 +21,13 @@ public class ShowTextImpl implements  IComponentChain{
 
     @Override
     public void dispense(ComponentContext c, Column.Builder builder, String data) {
-        if(data.equals("2")){
+
+        JsonManager manager = new JsonManager(data).parse();
+
+        if(manager.getChild(Constants.ELEMENTS_TYPE).equals(Constants.CHAIN_EDITTEXT)){
             builder.child(
                 EditTextComponent.create(c)
-                .id("Var1")
+                .id(manager.getChild(Constants.ELEMENTS_ID))
                 .build());
         }else{
             this.chain.dispense(c, builder, data);
