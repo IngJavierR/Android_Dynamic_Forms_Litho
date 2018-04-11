@@ -29,8 +29,12 @@ public class FirsScreenSpec {
     @OnCreateLayout
     static Component onCreateLayout(
             ComponentContext c,
-            @Prop JSONArray jsonArray,
+            @Prop String jsonInput,
             @Prop final FirsScreenSpec.EventHandlerListener listener) {
+
+        JSONArray parents = new JsonManager(jsonInput)
+                                .parse()
+                                .getParents();
 
         ComponentChain.OnEventListener eventListener = new ComponentChain.OnEventListener() {
             @Override
@@ -49,11 +53,11 @@ public class FirsScreenSpec {
         Row.Builder rowParentBuild;
         Column.Builder columnChildBuild;
 
-        for(int i=0; i<jsonArray.length(); i++){
+        for(int i=0; i<parents.length(); i++){
             rowParentBuild = Row.create(c);
 
             JSONArray jsonArrayChild = JsonManager
-                    .getJsonArrayInsideArrayByIndex(jsonArray, i);
+                    .getJsonArrayInsideArrayByIndex(parents, i);
 
             for(int y=0; y<jsonArrayChild.length(); y++){
                 columnChildBuild = Column.create(c);

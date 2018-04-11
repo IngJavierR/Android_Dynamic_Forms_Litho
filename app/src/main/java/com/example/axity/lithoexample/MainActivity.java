@@ -2,6 +2,7 @@ package com.example.axity.lithoexample;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toast;
 
 import com.example.axity.lithoexample.Flow.FirsScreen;
@@ -14,7 +15,11 @@ import com.facebook.yoga.YogaAlign;
 
 import org.json.JSONArray;
 
+import java.util.Locale;
+
 public class MainActivity extends AppCompatActivity {
+
+    private final String TAG = this.getClass().getName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 "\t            \"hint\": \"\",\n" +
                 "\t            \"regex\":\"\",\n" +
                 "\t            \"required\":false,\n" +
-                "\t            \"options\": [\"Enero\", \"Febrero\"],\n" +
+                "\t            \"options\": [\"1\", \"2\"],\n" +
                 "\t            \"minCharacters\": 10,\n" +
                 "\t            \"maxCharacters\": 100\n" +
                 "\t        },\n" +
@@ -76,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 "\t            \"hint\": \"\",\n" +
                 "\t            \"regex\":\"\",\n" +
                 "\t            \"required\":false,\n" +
-                "\t            \"options\": [\"1\", \"2\"],\n" +
+                "\t            \"options\": [\"Enero\", \"Febrero\"],\n" +
                 "\t            \"minCharacters\": 10,\n" +
                 "\t            \"maxCharacters\": 100\n" +
                 "\t        },\n" +
@@ -95,22 +100,16 @@ public class MainActivity extends AppCompatActivity {
                 "\t]\n" +
                 "}";
 
-        JSONArray parents =
-                new JsonManager(json)
-                    .parse()
-                    .getParents();
-
         final ComponentContext context = new ComponentContext(this);
         final Component component =
                 FirsScreen.create(context)
-                .jsonArray(parents)
+                .jsonInput(json)
                 .alignSelf(YogaAlign.CENTER)
                 .listener(new FirsScreenSpec.EventHandlerListener() {
                     @Override
                     public void onEvent(ComponentContext c, String id, String type, String text, int position) {
-                        Toast.makeText(c,
-                                String.format("Id: %s - Type: %s - Text: %s - Pos: %d", id, type, text, position),
-                                Toast.LENGTH_SHORT).show();
+                        Log.i(TAG,String.format(Locale.ENGLISH,
+                                "Id: %s - Type: %s - Text: %s - Pos: %d", id, type, text, position));
                     }
                 })
                 .build();
