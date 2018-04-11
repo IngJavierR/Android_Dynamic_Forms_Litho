@@ -25,9 +25,10 @@ public class ButtonComponentSpec {
     @OnCreateLayout
     static Component onCreateLayout(
             ComponentContext c,
-            @Prop String id) {
+            @Prop String id,
+            @Prop String text) {
         return CustomButton.create(c)
-                .text("CLick Me!")
+                .text(text)
                 .clickHandler(ButtonComponent.onButtonClick(c))
                 .build();
     }

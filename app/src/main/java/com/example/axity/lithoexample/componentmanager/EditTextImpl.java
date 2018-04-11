@@ -28,6 +28,8 @@ public class EditTextImpl implements  IComponentChain{
             builder.child(
                 EditTextComponent.create(c)
                 .id(manager.getChild(Constants.ELEMENTS_ID))
+                .hint(manager.getChild(Constants.ELEMENTS_HINT))
+                .title(manager.getChild(Constants.ELEMENTS_HINT))
                 .build());
         }else{
             this.chain.dispense(c, builder, data);

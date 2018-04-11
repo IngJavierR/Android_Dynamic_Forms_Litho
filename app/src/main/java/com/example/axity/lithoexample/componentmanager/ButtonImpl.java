@@ -29,6 +29,7 @@ public class ButtonImpl implements  IComponentChain{
             builder.child(
                 ButtonComponent.create(c)
                 .id(manager.getChild(Constants.ELEMENTS_ID))
+                .text(manager.getChild(Constants.ELEMENTS_HINT))
                 .widthDip(100)
                 .heightDip(48)
                 .marginDip(YogaEdge.RIGHT, 16)

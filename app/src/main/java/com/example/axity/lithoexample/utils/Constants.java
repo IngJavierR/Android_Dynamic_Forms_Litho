@@ -13,4 +13,5 @@ public class Constants {
     public static final String ELEMENTS_TYPE = "type";
     public static final String ELEMENTS_OPTIONS = "options";
     public static final String ELEMENTS_ID = "id";
+    public static final String ELEMENTS_HINT = "hint";
 }

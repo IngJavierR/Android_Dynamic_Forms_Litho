@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
                 "\t        },\n" +
                 "\t        {\n" +
                 "\t            \"id\": \"Apellido_Materno\",\n" +
-                "\t            \"type\": \"Button\",\n" +
+                "\t            \"type\": \"EditText\",\n" +
                 "\t            \"inputType\": \"STRING\",\n" +
                 "\t            \"hint\": \"Apellido Materno\",\n" +
                 "\t            \"regex\":\"\",\n" +

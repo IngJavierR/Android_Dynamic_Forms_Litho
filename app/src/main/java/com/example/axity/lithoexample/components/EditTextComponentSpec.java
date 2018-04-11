@@ -24,13 +24,15 @@ public class EditTextComponentSpec {
     @OnCreateLayout
     static Component onCreateLayout(
             ComponentContext c,
-            @Prop String id) {
+            @Prop String id,
+            @Prop String title,
+            @Prop String hint) {
         return Column.create(c)
                 .child(Text.create(c)
-                        .text("Apellido paterno")
+                        .text(title)
                         .textSizeSp(15))
                 .child(EditText.create(c)
-                        .hint("Apellido paterno")
+                        .hint(hint)
                         .textChangedEventHandler(EditTextComponent.onChangeText(c)))
                 .build();
     }
