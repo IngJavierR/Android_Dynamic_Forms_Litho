@@ -2,8 +2,10 @@ package com.example.axity.lithoexample;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.widget.Toast;
 
 import com.example.axity.lithoexample.Flow.FirsScreen;
+import com.example.axity.lithoexample.Flow.FirsScreenSpec;
 import com.example.axity.lithoexample.utils.JsonManager;
 import com.facebook.litho.Component;
 import com.facebook.litho.ComponentContext;
@@ -103,6 +105,14 @@ public class MainActivity extends AppCompatActivity {
                 FirsScreen.create(context)
                 .jsonArray(parents)
                 .alignSelf(YogaAlign.CENTER)
+                .listener(new FirsScreenSpec.EventHandlerListener() {
+                    @Override
+                    public void onEvent(ComponentContext c, String id, String type, String text, int position) {
+                        Toast.makeText(c,
+                                String.format("Id: %s - Type: %s - Text: %s - Pos: %d", id, type, text, position),
+                                Toast.LENGTH_SHORT).show();
+                    }
+                })
                 .build();
 
         lithoView.setComponent(component);

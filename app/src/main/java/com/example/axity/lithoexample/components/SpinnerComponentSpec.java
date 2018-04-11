@@ -1,7 +1,5 @@
 package com.example.axity.lithoexample.components;
 
-import android.widget.Toast;
-
 import com.example.axity.lithoexample.mount.CustomSpinner;
 import com.example.axity.lithoexample.mount.CustomSpinnerSpec;
 import com.facebook.litho.Component;
@@ -22,17 +20,22 @@ public class SpinnerComponentSpec {
     @OnCreateLayout
     static Component onCreateLayout(
             ComponentContext c,
-            @Prop String id,
-            @Prop List<String> dataList) {
+            @Prop final String id,
+            @Prop List<String> dataList,
+            @Prop final SpinnerComponentSpec.OnChangeSelectListener listener) {
         return CustomSpinner.create(c)
                 .dataList(dataList)
                 .identifier(id)
                 .listener(new CustomSpinnerSpec.OnSelectedChangeListener() {
                     @Override
                     public void onSelectedChange(ComponentContext c, String identifier, int position) {
-                        Toast.makeText(c, "Position - " + position + " Id- " + identifier, Toast.LENGTH_SHORT).show();
+                        listener.onChangeSelect(c, position, id);
                     }
                 })
                 .build();
+    }
+
+    public interface OnChangeSelectListener {
+        void onChangeSelect(ComponentContext c, int position, String id);
     }
 }

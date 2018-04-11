@@ -1,6 +1,7 @@
 package com.example.axity.lithoexample.componentmanager;
 
 import com.example.axity.lithoexample.components.ButtonComponent;
+import com.example.axity.lithoexample.components.ButtonComponentSpec;
 import com.example.axity.lithoexample.utils.Constants;
 import com.example.axity.lithoexample.utils.JsonManager;
 import com.facebook.litho.Column;
@@ -11,12 +12,17 @@ import com.facebook.yoga.YogaEdge;
  * Created by javierrodriguez on 4/9/18.
  */
 
-public class ButtonImpl implements  IComponentChain{
+public class ButtonImpl extends ComponentChain {
 
-    private IComponentChain chain;
+    private ComponentChain chain;
+    private ButtonImpl.OnEventListener listener;
+
+    public ButtonImpl(OnEventListener listener) {
+        this.listener = listener;
+    }
 
     @Override
-    public void setNextChain(IComponentChain nextChain) {
+    public void setNextChain(ComponentChain nextChain) {
         this.chain = nextChain;
     }
 
@@ -30,6 +36,12 @@ public class ButtonImpl implements  IComponentChain{
                 ButtonComponent.create(c)
                 .id(manager.getChild(Constants.ELEMENTS_ID))
                 .text(manager.getChild(Constants.ELEMENTS_HINT))
+                .listener(new ButtonComponentSpec.OnChangeClickListener() {
+                    @Override
+                    public void onClick(ComponentContext c, String id) {
+                        ButtonImpl.this.listener.onEventChange(c, id, Constants.CHAIN_BUTTON, "", 0);
+                    }
+                })
                 .widthDip(100)
                 .heightDip(48)
                 .marginDip(YogaEdge.RIGHT, 16)

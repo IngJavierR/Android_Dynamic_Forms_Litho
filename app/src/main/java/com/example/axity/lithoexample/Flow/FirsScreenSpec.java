@@ -1,8 +1,8 @@
 package com.example.axity.lithoexample.Flow;
 
 import com.example.axity.lithoexample.componentmanager.ButtonImpl;
+import com.example.axity.lithoexample.componentmanager.ComponentChain;
 import com.example.axity.lithoexample.componentmanager.EditTextImpl;
-import com.example.axity.lithoexample.componentmanager.IComponentChain;
 import com.example.axity.lithoexample.componentmanager.SpinnerImpl;
 import com.example.axity.lithoexample.utils.JsonManager;
 import com.facebook.litho.Column;
@@ -29,11 +29,19 @@ public class FirsScreenSpec {
     @OnCreateLayout
     static Component onCreateLayout(
             ComponentContext c,
-            @Prop JSONArray jsonArray) {
+            @Prop JSONArray jsonArray,
+            @Prop final FirsScreenSpec.EventHandlerListener listener) {
 
-        IComponentChain c1 = new EditTextImpl();
-        IComponentChain c2 = new ButtonImpl();
-        IComponentChain c3 = new SpinnerImpl();
+        ComponentChain.OnEventListener eventListener = new ComponentChain.OnEventListener() {
+            @Override
+            public void onEventChange(ComponentContext c, String id, String type, String text, int position) {
+                listener.onEvent(c, id, type, text, position);
+            }
+        };
+
+        ComponentChain c1 = new EditTextImpl(eventListener);
+        ComponentChain c2 = new ButtonImpl(eventListener);
+        ComponentChain c3 = new SpinnerImpl(eventListener);
         c1.setNextChain(c2);
         c2.setNextChain(c3);
 
@@ -68,5 +76,9 @@ public class FirsScreenSpec {
                 .wrap(YogaWrap.WRAP)
                 .build();
 
+    }
+
+    public interface EventHandlerListener {
+        void onEvent(ComponentContext c, String id, String type, String text, int position);
     }
 }

@@ -1,8 +1,5 @@
 package com.example.axity.lithoexample.components;
 
-import android.text.InputType;
-import android.widget.Toast;
-
 import com.facebook.litho.Column;
 import com.facebook.litho.Component;
 import com.facebook.litho.ComponentContext;
@@ -26,7 +23,8 @@ public class EditTextComponentSpec {
             ComponentContext c,
             @Prop String id,
             @Prop String title,
-            @Prop String hint) {
+            @Prop String hint,
+            @Prop EditTextComponentSpec.OnChangeTextListener listener) {
         return Column.create(c)
                 .child(Text.create(c)
                         .text(title)
@@ -38,9 +36,15 @@ public class EditTextComponentSpec {
     }
 
     @OnEvent(TextChangedEvent.class)
-    static void onChangeText(ComponentContext c, @FromEvent String text, @Prop String id){
-        Toast.makeText(c, text + " - " + id, Toast.LENGTH_SHORT).show();
+    static void onChangeText(ComponentContext c,
+             @FromEvent String text,
+             @Prop String id,
+             @Prop EditTextComponentSpec.OnChangeTextListener listener){
+        listener.onChangeText(c, text, id);
     }
 
+    public interface OnChangeTextListener {
+        void onChangeText(ComponentContext c, String text, String id);
+    }
 
 }

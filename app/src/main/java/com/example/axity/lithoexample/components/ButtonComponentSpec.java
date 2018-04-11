@@ -1,20 +1,13 @@
 package com.example.axity.lithoexample.components;
 
-import android.widget.Toast;
-
 import com.example.axity.lithoexample.mount.CustomButton;
 import com.facebook.litho.ClickEvent;
-import com.facebook.litho.Column;
 import com.facebook.litho.Component;
 import com.facebook.litho.ComponentContext;
-import com.facebook.litho.annotations.FromEvent;
 import com.facebook.litho.annotations.LayoutSpec;
 import com.facebook.litho.annotations.OnCreateLayout;
 import com.facebook.litho.annotations.OnEvent;
 import com.facebook.litho.annotations.Prop;
-import com.facebook.litho.widget.EditText;
-import com.facebook.litho.widget.Text;
-import com.facebook.litho.widget.TextChangedEvent;
 
 /**
  * Created by javierrodriguez on 4/6/18.
@@ -34,7 +27,13 @@ public class ButtonComponentSpec {
     }
 
     @OnEvent(ClickEvent.class)
-    static void onButtonClick(ComponentContext c, @Prop String id){
-        Toast.makeText(c, "Click - " + id, Toast.LENGTH_SHORT).show();
+    static void onButtonClick(ComponentContext c,
+              @Prop String id,
+              @Prop ButtonComponentSpec.OnChangeClickListener listener){
+        listener.onClick(c, id);
+    }
+
+    public interface OnChangeClickListener {
+        void onClick(ComponentContext c, String id);
     }
 }

@@ -1,14 +1,10 @@
 package com.example.axity.lithoexample.mount;
 
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.facebook.litho.ClickEvent;
 import com.facebook.litho.ComponentContext;
-import com.facebook.litho.annotations.FromEvent;
 import com.facebook.litho.annotations.MountSpec;
 import com.facebook.litho.annotations.OnCreateMountContent;
-import com.facebook.litho.annotations.OnEvent;
 import com.facebook.litho.annotations.OnMount;
 import com.facebook.litho.annotations.Prop;
 

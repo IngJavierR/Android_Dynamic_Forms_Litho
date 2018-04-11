@@ -3,19 +3,14 @@ package com.example.axity.lithoexample.mount;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
 
 import com.facebook.litho.ComponentContext;
-import com.facebook.litho.annotations.Event;
 import com.facebook.litho.annotations.MountSpec;
 import com.facebook.litho.annotations.OnCreateMountContent;
-import com.facebook.litho.annotations.OnEvent;
 import com.facebook.litho.annotations.OnMount;
 import com.facebook.litho.annotations.Prop;
-import com.facebook.litho.widget.SelectionChangedEvent;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
