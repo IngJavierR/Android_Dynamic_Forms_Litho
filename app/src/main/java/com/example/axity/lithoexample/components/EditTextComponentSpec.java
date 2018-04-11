@@ -1,5 +1,6 @@
 package com.example.axity.lithoexample.components;
 
+import android.text.InputType;
 import android.widget.Toast;
 
 import com.facebook.litho.Column;

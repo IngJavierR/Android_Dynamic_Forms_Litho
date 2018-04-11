@@ -14,14 +14,16 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        LithoView lithoView = findViewById(R.id.lithoComponent);
 
         final ComponentContext context = new ComponentContext(this);
-
         final Component component =
                 FirsScreen.create(context)
                 .alignSelf(YogaAlign.CENTER)
                 .build();
 
-        setContentView(LithoView.create(context, component));
+        lithoView.setComponent(component);
     }
 }
