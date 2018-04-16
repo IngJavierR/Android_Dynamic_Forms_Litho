@@ -10,8 +10,12 @@ public class Constants {
     public static final String CHAIN_BUTTON = "Button";
     public static final String CHAIN_SPINNER = "Spinner";
 
+    public static final String ELEMENTS = "elements";
     public static final String ELEMENTS_TYPE = "type";
     public static final String ELEMENTS_OPTIONS = "options";
     public static final String ELEMENTS_ID = "id";
     public static final String ELEMENTS_HINT = "hint";
+
+    public static final String REGEX_REPLACE_IN_JSON = "(id\": \"%s\"[\\s\\S\\w\\d]+?\"value\": )(\".*?\")";
+    public static final String REGEX_REPLACE_IN_JSON_FORMAT = "$1\"%s\"";
 }

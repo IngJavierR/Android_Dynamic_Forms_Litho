@@ -1,9 +1,10 @@
 package com.example.axity.lithoexample.utils;
 
+import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +14,7 @@ import java.util.List;
 
 public class JsonManager {
 
+    private static final String TAG = JsonManager.class.getName();
     private String jsonString;
     private JSONObject jsonObject = null;
 
@@ -25,7 +27,9 @@ public class JsonManager {
         try {
             this.jsonObject = new JSONObject(this.jsonString);
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.e(TAG,
+                    String.format("Error: [%s]\nCause: [%s]\nStack: [%s]",
+                            e.getMessage(), e.getCause(), e.getStackTrace()));
         }
         return this;
     }
@@ -33,9 +37,11 @@ public class JsonManager {
     public JSONArray getParents(){
         JSONArray arr = null;
         try {
-            arr = this.jsonObject.getJSONArray("elements");
+            arr = this.jsonObject.getJSONArray(Constants.ELEMENTS);
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.e(TAG,
+                    String.format("Error: [%s]\nCause: [%s]\nStack: [%s]",
+                            e.getMessage(), e.getCause(), e.getStackTrace()));
         }
         return arr;
     }
@@ -45,7 +51,9 @@ public class JsonManager {
         try {
             value = this.jsonObject.getString(propName);
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.e(TAG,
+                    String.format("Error: [%s]\nCause: [%s]\nStack: [%s]",
+                            e.getMessage(), e.getCause(), e.getStackTrace()));
         }
         return value;
     }
@@ -58,7 +66,9 @@ public class JsonManager {
                 values.add(jsonArray.getString(i));
             }
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.e(TAG,
+                    String.format("Error: [%s]\nCause: [%s]\nStack: [%s]",
+                            e.getMessage(), e.getCause(), e.getStackTrace()));
         }
         return values;
     }
@@ -68,7 +78,9 @@ public class JsonManager {
         try {
             jsonArrayChild = arr.getJSONArray(index);
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.e(TAG,
+                    String.format("Error: [%s]\nCause: [%s]\nStack: [%s]",
+                            e.getMessage(), e.getCause(), e.getStackTrace()));
         }
         return jsonArrayChild;
     }
@@ -78,9 +90,17 @@ public class JsonManager {
         try {
             jsonObject = arr.getJSONObject(index);
         } catch (JSONException e) {
-            e.printStackTrace();
+            Log.e(TAG,
+                    String.format("Error: [%s]\nCause: [%s]\nStack: [%s]",
+                            e.getMessage(), e.getCause(), e.getStackTrace()));
         }
         return jsonObject;
+    }
+
+    public static String replaceInJsonTree(String jsonString, String key, String value) {
+
+        String pattern = String.format(Constants.REGEX_REPLACE_IN_JSON, key);
+        return jsonString.replaceFirst(pattern, String.format(Constants.REGEX_REPLACE_IN_JSON_FORMAT, value));
     }
 
 }
