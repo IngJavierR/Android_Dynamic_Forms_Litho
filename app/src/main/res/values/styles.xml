@@ -1,5 +1,36 @@
 <resources>
 
+    <style name="StyleEditTextLabelDefault">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="StyleEditTextDefault">
+        <item name="android:textColor">@color/colorVerde</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="StyleSpinnerDefault">
+        <item name="android:background">@android:color/holo_blue_light</item>
+    </style>
+
+    <style name="StyleButtonDefault">
+        <item name="android:textColor">@android:color/holo_blue_light</item>
+    </style>
+
+    <style name="StyleEditTextPaterno">
+        <item name="android:textColor">@android:color/holo_orange_light</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="StyleEditTextLabelPaterno">
+        <item name="android:textStyle">italic</item>
+        <!--
+        <item name="android:textColor">@color/colorPrimaryDark</item> -->
+    </style>
+
+
+
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->

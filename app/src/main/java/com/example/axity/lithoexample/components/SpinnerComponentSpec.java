@@ -7,6 +7,7 @@ import com.facebook.litho.ComponentContext;
 import com.facebook.litho.annotations.LayoutSpec;
 import com.facebook.litho.annotations.OnCreateLayout;
 import com.facebook.litho.annotations.Prop;
+import com.facebook.litho.annotations.ResType;
 
 import java.util.List;
 
@@ -21,9 +22,16 @@ public class SpinnerComponentSpec {
     static Component onCreateLayout(
             ComponentContext c,
             @Prop final String id,
+            @Prop (
+                    resType = ResType.NONE,
+                    optional = true
+            )   String style,
             @Prop List<String> dataList,
             @Prop final SpinnerComponentSpec.OnChangeSelectListener listener) {
-        return CustomSpinner.create(c)
+
+        String estilo = (style == null || "".equals(style) ? "StyleEditTextDefault" : style);
+        int resourceId = c.getResources().getIdentifier(estilo,"style",c.getPackageName());
+        return CustomSpinner.create(c,0, resourceId)
                 .dataList(dataList)
                 .identifier(id)
                 .listener(new CustomSpinnerSpec.OnSelectedChangeListener() {

@@ -40,6 +40,7 @@ public class SpinnerImpl extends ComponentChain {
             builder.child(
                 SpinnerComponent.create(c)
                 .id(manager.getChild(Constants.ELEMENTS_ID))
+                .style(manager.getChild(Constants.ELEMENTS_STYLE))
                 .dataList(dataList)
                 .listener(new SpinnerComponentSpec.OnChangeSelectListener() {
                     @Override
