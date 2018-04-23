@@ -38,8 +38,6 @@ public class MainActivity extends AppCompatActivity implements FirsScreenSpec.Ev
                 "\t            \"required\":false,\n" +
                 "\t            \"minCharacters\": 0,\n" +
                 "\t            \"maxCharacters\": 100,\n" +
-                "\t            \"style\": \"StyleEditTextPaterno\",\n" +
-                "\t            \"styleLabel\": \"StyleEditTextLabelPaterno\",\n" +
                 "\t            \"value\": \"\"\n" +
                 "\t        },\n" +
                 "\t        {\n" +

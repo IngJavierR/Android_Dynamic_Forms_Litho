@@ -5,4 +5,8 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="colorVerde">#00FF00</color>
+
+    <color name="BlueRoga">#304c95</color>
+    <color name="GrayFondoRoga">#e5e5e5</color>
+
 </resources>

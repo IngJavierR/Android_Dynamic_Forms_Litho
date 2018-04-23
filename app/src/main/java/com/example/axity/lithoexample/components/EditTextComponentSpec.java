@@ -52,7 +52,7 @@ public class EditTextComponentSpec {
         Column.Builder result =  Column.create(c)
                             .child(Text.create(c,0,resourceIdLabel)
                                     .text(title)
-                                    .textStyle(Typeface.BOLD)
+                                    //.textStyle(Typeface.BOLD)
                                     .textSizeSp(15))
                             .child(EditText.create(c,0,resourceId)
                                     .hint(hint)
