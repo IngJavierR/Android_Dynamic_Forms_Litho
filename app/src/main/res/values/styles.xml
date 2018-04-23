@@ -1,4 +1,44 @@
 <resources>
+    <style name="Theme.spinnerStyle" parent="@android:style/Widget.DeviceDefault.Light.Spinner">
+        <item name="android:background">@color/GrayFondoRoga</item>
+    </style>
+
+    <style name="StyleEditTextLabelDefault">
+        <item name="android:textColor">@color/BlueRoga</item>
+    </style>
+
+    <style name="StyleEditTextDefault">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:background">@drawable/edit_text_bg</item>
+        <item name="android:textSize">14dp</item>
+    </style>
+
+    <style name="StyleSpinnerDefault">
+        <!--<item name="android:background">@drawable/spinner_bg</item> -->
+
+        <item name="android:background">@drawable/spinner_bg</item>
+
+    </style>
+
+    <style name="StyleButtonDefault">
+        <item name="android:textColor">@android:color/holo_blue_light</item>
+    </style>
+
+    <style name="StyleEditTextPaterno">
+        <item name="android:textColor">@android:color/holo_orange_light</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="StyleEditTextLabelPaterno">
+        <item name="android:textStyle">italic</item>
+        <!--
+        <item name="android:textColor">@color/colorPrimaryDark</item> -->
+
+    </style>
+
+
+
+
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">

@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity implements FirsScreenSpec.Ev
                 "\t            \"required\":false,\n" +
                 "\t            \"minCharacters\": 0,\n" +
                 "\t            \"maxCharacters\": 100,\n" +
+                "\t            \"style\": \"StyleEditTextDefault\",\n" +
                 "\t            \"value\": \"\"\n" +
                 "\t        }\n" +
                 "\t    ],\n" +
@@ -74,6 +75,7 @@ public class MainActivity extends AppCompatActivity implements FirsScreenSpec.Ev
                 "\t            \"options\": [\"1\", \"2\"],\n" +
                 "\t            \"minCharacters\": 10,\n" +
                 "\t            \"maxCharacters\": 100,\n" +
+                "\t            \"style\": \"StyleSpinnerDefault\",\n" +
                 "\t            \"value\": \"\"\n" +
                 "\t        },\n" +
                 "\t        {\n" +
@@ -86,6 +88,7 @@ public class MainActivity extends AppCompatActivity implements FirsScreenSpec.Ev
                 "\t            \"options\": [\"Enero\", \"Febrero\"],\n" +
                 "\t            \"minCharacters\": 10,\n" +
                 "\t            \"maxCharacters\": 100,\n" +
+                "\t            \"style\": \"StyleSpinnerDefault\",\n" +
                 "\t            \"value\": \"\"\n" +
                 "\t        },\n" +
                 "\t        {\n" +
@@ -98,6 +101,7 @@ public class MainActivity extends AppCompatActivity implements FirsScreenSpec.Ev
                 "\t            \"options\": [\"2000\", \"2001\"],\n" +
                 "\t            \"minCharacters\": 10,\n" +
                 "\t            \"maxCharacters\": 100,\n" +
+                "\t            \"style\": \"StyleSpinnerDefault\",\n" +
                 "\t            \"value\": \"\"\n" +
                 "\t        }\n" +
                 "\t    ]\n" +

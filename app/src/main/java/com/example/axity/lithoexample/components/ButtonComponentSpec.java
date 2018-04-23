@@ -8,6 +8,7 @@ import com.facebook.litho.annotations.LayoutSpec;
 import com.facebook.litho.annotations.OnCreateLayout;
 import com.facebook.litho.annotations.OnEvent;
 import com.facebook.litho.annotations.Prop;
+import com.facebook.litho.annotations.ResType;
 
 /**
  * Created by javierrodriguez on 4/6/18.
@@ -19,8 +20,15 @@ public class ButtonComponentSpec {
     static Component onCreateLayout(
             ComponentContext c,
             @Prop String id,
-            @Prop String text) {
-        return CustomButton.create(c)
+            @Prop String text,
+            @Prop (
+                    resType = ResType.NONE,
+                    optional = true
+            )  String style) {
+
+        String estilo = (style == null || "".equals(style) ? "StyleButtonDefault" : style);
+        int resourceId = c.getResources().getIdentifier(estilo,"style",c.getPackageName());
+        return CustomButton.create(c,0,resourceId)
                 .text(text)
                 .clickHandler(ButtonComponent.onButtonClick(c))
                 .build();

@@ -1,12 +1,15 @@
 package com.example.axity.lithoexample.componentmanager;
 
+import android.util.Log;
+
 import com.example.axity.lithoexample.components.EditTextComponent;
 import com.example.axity.lithoexample.components.EditTextComponentSpec;
 import com.example.axity.lithoexample.utils.Constants;
 import com.example.axity.lithoexample.utils.JsonManager;
 import com.facebook.litho.Column;
+import com.facebook.litho.Component;
 import com.facebook.litho.ComponentContext;
-
+import com.example.axity.lithoexample.R;
 /**
  * Created by javierrodriguez on 4/9/18.
  */
@@ -31,18 +34,23 @@ public class EditTextImpl extends ComponentChain {
         JsonManager manager = new JsonManager(data).parse();
 
         if(manager.getChild(Constants.ELEMENTS_TYPE).equals(Constants.CHAIN_EDITTEXT)){
-            builder.child(
-                EditTextComponent.create(c)
-                .id(manager.getChild(Constants.ELEMENTS_ID))
-                .hint(manager.getChild(Constants.ELEMENTS_HINT))
-                .title(manager.getChild(Constants.ELEMENTS_HINT))
-                .listener(new EditTextComponentSpec.OnChangeTextListener() {
-                    @Override
-                    public void onChangeText(ComponentContext c, String text, String id) {
-                        EditTextImpl.this.listener.onEventChange(c, id, Constants.CHAIN_EDITTEXT, text, 0);
-                    }
-                })
-                .build());
+
+            EditTextComponent.Builder b = EditTextComponent.create(c);
+
+            Component cmp  =  b.id(manager.getChild(Constants.ELEMENTS_ID))
+                    .hint(manager.getChild(Constants.ELEMENTS_HINT))
+                    .title(manager.getChild(Constants.ELEMENTS_HINT))
+                    .style(manager.getChild(Constants.ELEMENTS_STYLE))
+                    .styleLabel(manager.getChild(Constants.ELEMENTS_STYLE_LABE))
+                    .listener(new EditTextComponentSpec.OnChangeTextListener() {
+                        @Override
+                        public void onChangeText(ComponentContext c, String text, String id) {
+                            EditTextImpl.this.listener.onEventChange(c, id, Constants.CHAIN_EDITTEXT, text, 0);
+                        }
+                    }).build();
+            EditTextComponent component = (EditTextComponent) cmp;
+
+            builder.child(cmp);
         }else{
             this.chain.dispense(c, builder, data);
         }

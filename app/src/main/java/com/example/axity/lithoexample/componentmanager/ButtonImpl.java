@@ -36,6 +36,7 @@ public class ButtonImpl extends ComponentChain {
                 ButtonComponent.create(c)
                 .id(manager.getChild(Constants.ELEMENTS_ID))
                 .text(manager.getChild(Constants.ELEMENTS_HINT))
+                .style(manager.getChild(Constants.ELEMENTS_STYLE))
                 .listener(new ButtonComponentSpec.OnChangeClickListener() {
                     @Override
                     public void onClick(ComponentContext c, String id) {
