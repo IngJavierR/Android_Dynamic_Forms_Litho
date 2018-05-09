@@ -1,7 +1,5 @@
 package com.example.axity.lithoexample.componentmanager;
 
-import android.util.Log;
-
 import com.example.axity.lithoexample.components.EditTextComponent;
 import com.example.axity.lithoexample.components.EditTextComponentSpec;
 import com.example.axity.lithoexample.utils.Constants;
@@ -9,7 +7,6 @@ import com.example.axity.lithoexample.utils.JsonManager;
 import com.facebook.litho.Column;
 import com.facebook.litho.Component;
 import com.facebook.litho.ComponentContext;
-import com.example.axity.lithoexample.R;
 /**
  * Created by javierrodriguez on 4/9/18.
  */
@@ -40,8 +37,10 @@ public class EditTextImpl extends ComponentChain {
             Component cmp  =  b.id(manager.getChild(Constants.ELEMENTS_ID))
                     .hint(manager.getChild(Constants.ELEMENTS_HINT))
                     .title(manager.getChild(Constants.ELEMENTS_HINT))
+                    .value(manager.getChild(Constants.ELEMENTS_VALUE))
                     .style(manager.getChild(Constants.ELEMENTS_STYLE))
                     .styleLabel(manager.getChild(Constants.ELEMENTS_STYLE_LABE))
+                    .layout_weight(manager.getChildNum(Constants.ELEMENTS_LAYOUT_WEIGHT))
                     .listener(new EditTextComponentSpec.OnChangeTextListener() {
                         @Override
                         public void onChangeText(ComponentContext c, String text, String id) {

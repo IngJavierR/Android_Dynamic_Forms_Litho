@@ -14,10 +14,13 @@ public class Constants {
     public static final String ELEMENTS_TYPE = "type";
     public static final String ELEMENTS_OPTIONS = "options";
     public static final String ELEMENTS_ID = "id";
+    public static final String ELEMENTS_VALUE = "value";
     public static final String ELEMENTS_HINT = "hint";
     public static final String ELEMENTS_STYLE = "style";
     public static final String ELEMENTS_STYLE_LABE = "styleLabel";
+    public static final String ELEMENTS_LAYOUT_WEIGHT = "layout_weight";
 
+    public static final String STYLE_EDITTEXT_DEFAULT = "StyleEditTextDefault";
 
     public static final String REGEX_REPLACE_IN_JSON = "(id\": \"%s\"[\\s\\S\\w\\d]+?\"value\": )(\".*?\")";
     public static final String REGEX_REPLACE_IN_JSON_FORMAT = "$1\"%s\"";

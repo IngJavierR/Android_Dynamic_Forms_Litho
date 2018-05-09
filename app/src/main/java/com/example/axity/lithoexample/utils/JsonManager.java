@@ -58,6 +58,18 @@ public class JsonManager {
         return value;
     }
 
+    public int getChildNum(String propName){
+        int value = 0;
+        try {
+            value = this.jsonObject.getInt(propName);
+        } catch (JSONException e) {
+            Log.e(TAG,
+                    String.format("Error: [%s]\nCause: [%s]\nStack: [%s]",
+                            e.getMessage(), e.getCause(), e.getStackTrace()));
+        }
+        return value;
+    }
+
     public List<String> getChildArray(String propName){
         List<String> values = new ArrayList<>();
         try {

@@ -21,16 +21,23 @@ public class CustomSpinnerSpec {
 
     @OnCreateMountContent
     static Spinner onCreateMountContent(ComponentContext c){
+
         return new Spinner(c);
     }
 
     @OnMount
-    static void onMount(final ComponentContext c, Spinner spinner,
-                        final @Prop String identifier, @Prop List<String> dataList,
-                        @Prop final OnSelectedChangeListener listener){
+    static void onMount(final ComponentContext c,
+                        Spinner spinner,
+                        final @Prop String identifier,
+                        @Prop List<String> dataList,
+                        @Prop int value,
+                        @Prop final OnSelectedChangeListener listener) {
         ArrayAdapter<String> spinnerArrayAdapter =
                 new ArrayAdapter<>(c, android.R.layout.simple_spinner_dropdown_item, dataList);
+
         spinner.setAdapter(spinnerArrayAdapter);
+        spinner.setSelection(value);
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {

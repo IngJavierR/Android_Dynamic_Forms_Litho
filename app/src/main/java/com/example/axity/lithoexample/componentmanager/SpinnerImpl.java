@@ -42,15 +42,15 @@ public class SpinnerImpl extends ComponentChain {
                 .id(manager.getChild(Constants.ELEMENTS_ID))
                 .style(manager.getChild(Constants.ELEMENTS_STYLE))
                 .dataList(dataList)
+                .value(manager.getChildNum(Constants.ELEMENTS_VALUE))
+                .layout_weight(manager.getChildNum(Constants.ELEMENTS_LAYOUT_WEIGHT))
                 .listener(new SpinnerComponentSpec.OnChangeSelectListener() {
                     @Override
                     public void onChangeSelect(ComponentContext c, int position, String id) {
                         SpinnerImpl.this.listener.onEventChange(c, id, Constants.CHAIN_SPINNER, "", position);
                     }
                 })
-                .widthDip(120)
                 .heightDip(48)
-                .marginDip(YogaEdge.RIGHT, 16)
                 .build());
         }else{
             this.chain.dispense(c, builder, data);

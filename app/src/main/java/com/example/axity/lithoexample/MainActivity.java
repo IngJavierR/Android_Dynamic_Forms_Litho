@@ -38,18 +38,23 @@ public class MainActivity extends AppCompatActivity implements FirsScreenSpec.Ev
                 "\t            \"required\":false,\n" +
                 "\t            \"minCharacters\": 0,\n" +
                 "\t            \"maxCharacters\": 100,\n" +
+                "\t            \"layout_weight\": 1,\n" +
+                "\t            \"style\": \"\",\n" +
+                "\t            \"styleLabel\": \"\",\n" +
                 "\t            \"value\": \"\"\n" +
                 "\t        },\n" +
                 "\t        {\n" +
                 "\t            \"id\": \"Apellido_Materno\",\n" +
-                "\t            \"type\": \"EditText\",\n" +
+                "\t            \"type\": \"Button\",\n" +
                 "\t            \"inputType\": \"STRING\",\n" +
                 "\t            \"hint\": \"Apellido Materno\",\n" +
                 "\t            \"regex\":\"\",\n" +
                 "\t            \"required\":false,\n" +
                 "\t            \"minCharacters\": 0,\n" +
                 "\t            \"maxCharacters\": 100,\n" +
-                "\t            \"style\": \"StyleEditTextDefault\",\n" +
+                "\t            \"layout_weight\": 1,\n" +
+                "\t            \"style\": \"\",\n" +
+                "\t            \"styleLabel\": \"\",\n" +
                 "\t            \"value\": \"\"\n" +
                 "\t        }\n" +
                 "\t    ],\n" +
@@ -63,6 +68,9 @@ public class MainActivity extends AppCompatActivity implements FirsScreenSpec.Ev
                 "\t            \"required\":false,\n" +
                 "\t            \"minCharacters\": 10,\n" +
                 "\t            \"maxCharacters\": 100,\n" +
+                "\t            \"layout_weight\": 1,\n" +
+                "\t            \"style\": \"\",\n" +
+                "\t            \"styleLabel\": \"\",\n" +
                 "\t            \"value\": \"\"\n" +
                 "\t        },\n" +
                 "\t        {\n" +
@@ -72,11 +80,13 @@ public class MainActivity extends AppCompatActivity implements FirsScreenSpec.Ev
                 "\t            \"hint\": \"\",\n" +
                 "\t            \"regex\":\"\",\n" +
                 "\t            \"required\":false,\n" +
-                "\t            \"options\": [\"1\", \"2\"],\n" +
+                "\t            \"options\": [\"Enero\", \"Febrero\"],\n" +
                 "\t            \"minCharacters\": 10,\n" +
                 "\t            \"maxCharacters\": 100,\n" +
-                "\t            \"style\": \"StyleSpinnerDefault\",\n" +
-                "\t            \"value\": \"\"\n" +
+                "\t            \"layout_weight\": 1,\n" +
+                "\t            \"style\": \"StyleEditTextDefault\",\n" +
+                "\t            \"styleLabel\": \"\",\n" +
+                "\t            \"value\": \"0\"\n" +
                 "\t        },\n" +
                 "\t        {\n" +
                 "\t            \"id\": \"Fecha_Nac_Mes\",\n" +
@@ -85,11 +95,13 @@ public class MainActivity extends AppCompatActivity implements FirsScreenSpec.Ev
                 "\t            \"hint\": \"\",\n" +
                 "\t            \"regex\":\"\",\n" +
                 "\t            \"required\":false,\n" +
-                "\t            \"options\": [\"Enero\", \"Febrero\"],\n" +
+                "\t            \"options\": [\"1\", \"2\"],\n" +
                 "\t            \"minCharacters\": 10,\n" +
                 "\t            \"maxCharacters\": 100,\n" +
-                "\t            \"style\": \"StyleSpinnerDefault\",\n" +
-                "\t            \"value\": \"\"\n" +
+                "\t            \"layout_weight\": 1,\n" +
+                "\t            \"style\": \"StyleEditTextDefault\",\n" +
+                "\t            \"styleLabel\": \"\",\n" +
+                "\t            \"value\": \"0\"\n" +
                 "\t        },\n" +
                 "\t        {\n" +
                 "\t            \"id\": \"Fecha_Nac_Anio\",\n" +
@@ -101,7 +113,25 @@ public class MainActivity extends AppCompatActivity implements FirsScreenSpec.Ev
                 "\t            \"options\": [\"2000\", \"2001\"],\n" +
                 "\t            \"minCharacters\": 10,\n" +
                 "\t            \"maxCharacters\": 100,\n" +
-                "\t            \"style\": \"StyleSpinnerDefault\",\n" +
+                "\t            \"layout_weight\": 1,\n" +
+                "\t            \"style\": \"StyleEditTextDefault\",\n" +
+                "\t            \"styleLabel\": \"\",\n" +
+                "\t            \"value\": \"0\"\n" +
+                "\t        }\n" +
+                "\t    ],\n" +
+                "\t    [\n" +
+                "\t        {\n" +
+                "\t            \"id\": \"Direccion\",\n" +
+                "\t            \"type\": \"EditText\",\n" +
+                "\t            \"inputType\": \"STRING\",\n" +
+                "\t            \"hint\": \"Dirección\",\n" +
+                "\t            \"regex\":\"\",\n" +
+                "\t            \"required\":false,\n" +
+                "\t            \"minCharacters\": 0,\n" +
+                "\t            \"maxCharacters\": 100,\n" +
+                "\t            \"layout_weight\": 1,\n" +
+                "\t            \"style\": \"\",\n" +
+                "\t            \"styleLabel\": \"\",\n" +
                 "\t            \"value\": \"\"\n" +
                 "\t        }\n" +
                 "\t    ]\n" +

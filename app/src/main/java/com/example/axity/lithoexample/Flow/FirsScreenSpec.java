@@ -12,6 +12,7 @@ import com.facebook.litho.Row;
 import com.facebook.litho.annotations.LayoutSpec;
 import com.facebook.litho.annotations.OnCreateLayout;
 import com.facebook.litho.annotations.Prop;
+import com.facebook.yoga.YogaEdge;
 import com.facebook.yoga.YogaJustify;
 import com.facebook.yoga.YogaWrap;
 
@@ -61,22 +62,27 @@ public class FirsScreenSpec {
 
             for(int y=0; y<jsonArrayChild.length(); y++){
                 columnChildBuild = Column.create(c);
+                columnChildBuild
+                        .widthPercent(100)
+                        .marginPercent(YogaEdge.LEFT, 1)
+                        .marginPercent(YogaEdge.RIGHT, 1);
 
                 JSONObject jsonObjectChild = JsonManager
                         .getJsonObjectInsideArrayByIndex(jsonArrayChild, y);
 
                 c1.dispense(c, columnChildBuild, jsonObjectChild.toString());
 
-                rowParentBuild.child(columnChildBuild);
+                rowParentBuild
+                        .marginPercent(YogaEdge.LEFT, 4)
+                        .marginPercent(YogaEdge.RIGHT, 4)
+                        .marginPercent(YogaEdge.TOP, 2)
+                        .child(columnChildBuild);
             }
-            columnParentBuild.child(rowParentBuild);
+            columnParentBuild
+                    .child(rowParentBuild);
         }
 
         return columnParentBuild
-                .alignItems(CENTER)
-                .justifyContent(YogaJustify.CENTER)
-                .alignContent(CENTER)
-                .alignItems(CENTER)
                 .wrap(YogaWrap.WRAP)
                 .build();
 

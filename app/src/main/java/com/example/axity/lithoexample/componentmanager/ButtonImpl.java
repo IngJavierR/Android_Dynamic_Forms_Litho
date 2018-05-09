@@ -37,13 +37,13 @@ public class ButtonImpl extends ComponentChain {
                 .id(manager.getChild(Constants.ELEMENTS_ID))
                 .text(manager.getChild(Constants.ELEMENTS_HINT))
                 .style(manager.getChild(Constants.ELEMENTS_STYLE))
+                .layout_weight(manager.getChildNum(Constants.ELEMENTS_LAYOUT_WEIGHT))
                 .listener(new ButtonComponentSpec.OnChangeClickListener() {
                     @Override
                     public void onClick(ComponentContext c, String id) {
                         ButtonImpl.this.listener.onEventChange(c, id, Constants.CHAIN_BUTTON, "", 0);
                     }
                 })
-                .widthDip(100)
                 .heightDip(48)
                 .marginDip(YogaEdge.RIGHT, 16)
                 .build());

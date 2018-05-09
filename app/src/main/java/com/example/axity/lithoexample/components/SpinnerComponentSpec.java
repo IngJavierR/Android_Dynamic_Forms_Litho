@@ -2,6 +2,7 @@ package com.example.axity.lithoexample.components;
 
 import com.example.axity.lithoexample.mount.CustomSpinner;
 import com.example.axity.lithoexample.mount.CustomSpinnerSpec;
+import com.example.axity.lithoexample.utils.Constants;
 import com.facebook.litho.Component;
 import com.facebook.litho.ComponentContext;
 import com.facebook.litho.annotations.LayoutSpec;
@@ -27,13 +28,17 @@ public class SpinnerComponentSpec {
                     optional = true
             )   String style,
             @Prop List<String> dataList,
+            @Prop int value,
+            @Prop int layout_weight,
             @Prop final SpinnerComponentSpec.OnChangeSelectListener listener) {
 
-        String estilo = (style == null || "".equals(style) ? "StyleEditTextDefault" : style);
+        String estilo = (style == null || "".equals(style) ? Constants.STYLE_EDITTEXT_DEFAULT : style);
         int resourceId = c.getResources().getIdentifier(estilo,"style",c.getPackageName());
         return CustomSpinner.create(c,0, resourceId)
                 .dataList(dataList)
                 .identifier(id)
+                .value(value)
+                .flexGrow(layout_weight)
                 .listener(new CustomSpinnerSpec.OnSelectedChangeListener() {
                     @Override
                     public void onSelectedChange(ComponentContext c, String identifier, int position) {

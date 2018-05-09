@@ -21,6 +21,7 @@ public class ButtonComponentSpec {
             ComponentContext c,
             @Prop String id,
             @Prop String text,
+            @Prop int layout_weight,
             @Prop (
                     resType = ResType.NONE,
                     optional = true
@@ -30,6 +31,7 @@ public class ButtonComponentSpec {
         int resourceId = c.getResources().getIdentifier(estilo,"style",c.getPackageName());
         return CustomButton.create(c,0,resourceId)
                 .text(text)
+                .flexGrow(layout_weight)
                 .clickHandler(ButtonComponent.onButtonClick(c))
                 .build();
     }
